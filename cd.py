@@ -1,5 +1,6 @@
 import webbrowser
-f = open('cd.html','w')
+cd_bigcommerce = open('cd_bigcommerce.txt','w')
+cd_walmart = open('cd_walmart.txt','w')
 
 ## BASIC INPUT
 sku = input("SKU: ")
@@ -7,7 +8,7 @@ artist = input("Artist: ")
 album = input("Nth (Album, Mini Album, EP, Single): ").title()
 if "Ep" in album:
     album = album.replace("Ep","EP")
-name = input("Title: ")
+name = input("Title: ").title()
 release_date = input("Release Date (YYMMDD):")
 
 
@@ -26,6 +27,16 @@ while song != "":
 trackHTML = ""
 track = ""
 for x in range(len(tracklist)):
+    if x == 0:
+        track += """
+        <p dir="ltr" style="line-height: 1.8; margin-top: 0pt; margin-bottom: 0pt;">
+        <span style="font-size: 12pt; font-family: Arial,sans-serif; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"><br /></span>
+        <span style="font-size: 12pt; font-family: Arial,sans-serif; color: #0000ff; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">■ Track List</span>
+        <span style="font-size: 12pt; font-family: Arial,sans-serif; color: #0000ff; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"><br /></span>
+        <span style="font-size: 12pt; font-family: Arial,sans-serif; color: #800080; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">DISC1 (CD)</span>
+        <span style="font-size: 12pt; font-family: Arial,sans-serif; color: #800080; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"><br /></span>
+        """
+
     trackHTML = f"""<span style="font-size: 12pt; font-family: Arial,sans-serif; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">{"00"+ str(x+1)+ " "}{tracklist[x]}</span>
                 <span style="font-size: 12pt; font-family: Arial,sans-serif; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"><br /></span>"""
     track += trackHTML
@@ -84,8 +95,8 @@ while gift != "":
 package = ""
 for x in range(len(package_list)):
     packageHTML = f"""
-    <span style="font-size: 12pt; font-family: Arial,sans-serif; color: #000000; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">{package_list[x][0].upper()}</span>
-    <span style="font-size: 12pt; font-family: Arial,sans-serif; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"><br /></span>
+    <span style="font-size: 12pt; font-family: Arial,sans-serif; color: #000000; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">- {package_list[x][0].upper()}</span>
+    <span style="font-size: 12pt; font-family: Arial,sans-serif; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"><br>&nbsp;&nbsp;</span>
     """
     # page
     if package_list[x][1] != "":
@@ -97,9 +108,9 @@ for x in range(len(package_list)):
    
     # random
     if package_list[x][3] != "":
-        packageHTML += f"random {int(package_list[x][2])}ea out of {package_list[x][3]}"
+        packageHTML += f"random {package_list[x][2]}ea out of {package_list[x][3]}"
     else:
-        packageHTML += f"{int(package_list[x][2])}ea"
+        packageHTML += f"{package_list[x][2]}ea"
         
     # note
     if package_list[x][4] != "":
@@ -124,14 +135,10 @@ def bigCommerce(artist, album, name, release_date, track, version, package):
     <p dir="ltr" style="line-height: 1.8; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 14pt; font-family: Arial,sans-serif; color: #ff0000; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">K-Pop</span><span style="font-size: 14pt; font-family: Arial,sans-serif; color: #000000; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"> {artist.strip().upper()} {album.title()} [ {name} ] </span></p>
     <p dir="ltr" style="line-height: 1.8; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 12pt; font-family: Arial,sans-serif; color: #000000; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"><br /></span><span style="font-size: 12pt; font-family: Arial,sans-serif; color: #0000ff; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">■</span><span style="font-size: 12pt; font-family: Arial,sans-serif; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">&nbsp;Release Date : 20{'.'.join(release_date[i:i+2] for i in range(0, len(release_date), 2))}</span><span style="font-size: 12pt; font-family: Arial,sans-serif; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"><br /></span><span style="font-size: 12pt; font-family: Arial,sans-serif; color: #0000ff; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">■</span><span style="font-size: 12pt; font-family: Arial,sans-serif; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">&nbsp;Genre : K-Pop</span><br /><span style="font-size: 12pt; font-family: Arial,sans-serif; color: #0000ff; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">■</span><span style="font-size: 12pt; font-family: Arial,sans-serif; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">&nbsp;Disc Format(s) : CD</span></p>
     <p dir="ltr" style="line-height: 1.8; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 12pt; font-family: Arial,sans-serif; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">&nbsp;</span></p>
-    <p dir="ltr" style="line-height: 1.8; margin-top: 0pt; margin-bottom: 0pt;">
-        <span style="font-size: 12pt; font-family: Arial,sans-serif; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"><br /></span>
-        <span style="font-size: 12pt; font-family: Arial,sans-serif; color: #0000ff; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">■ Track List</span>
-        <span style="font-size: 12pt; font-family: Arial,sans-serif; color: #0000ff; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"><br /></span>
-        <span style="font-size: 12pt; font-family: Arial,sans-serif; color: #800080; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">DISC1 (CD)</span>
-        <span style="font-size: 12pt; font-family: Arial,sans-serif; color: #800080; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"><br /></span>
-        {track}
-        <p>&nbsp;</p>
+
+    {track}
+    <p>&nbsp;</p>
+
     <h3 dir="ltr" style="line-height: 1.8; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 12pt; font-family: Arial,sans-serif; color: #0000ff; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">■ Contents</span></h3>
     {version}
     <p>&nbsp;</p>
@@ -144,7 +151,9 @@ def bigCommerce(artist, album, name, release_date, track, version, package):
     """
     ## for image
     # <p><span style="font-size: 12pt; font-family: Arial,sans-serif; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"><img src="http://image.kyobobook.co.kr/newimages/apps/b2c/prom/2023/09/26/2564238-2.jpg" alt="" /></span></p>
-    f.write(description)
+    
+    cd_bigcommerce.write("=============================BIG COMMERCE=============================\n\n\n")
+    cd_bigcommerce.write(description)
     return(description)
 
 
@@ -152,14 +161,14 @@ def bigCommerce(artist, album, name, release_date, track, version, package):
 def walmart(sku, artist, album, name, release_date, versionHTML, package):
     description = f"""
     <h3 style="line-height: 150%">
-    <font face="Arial" color="#ff0000"><b><font >K-Pop</font><font face="Arial">{artist.strip().upper()} {album.title()} [ {name} ]</b></font></h3>
-    <br>
+    <font face="Arial" size="4" color="#ff0000"><b><font >K-Pop </font><font face="Arial" size="4" color="#000000">{artist.strip().upper()} {album.title()} [ {name} ]</b></font></h3>
     <p style="line-height: 150%">
     <font face="Arial" size="3">
-    <font color="#0000ff">■</font> Release Date : 20{'.'.join(release_date[i:i+2] for i in range(0, len(release_date), 2))}<br>
-    <font color="#0000ff">■</font> Genre : K-Pop<br>
-    <font color="#0000ff">■</font> Disc Format(s) : CD<br>
-    <font color="#0000ff">■</font> KJCstar Product ID : {sku.upper()}</font>
+    <font color="#0000ff">■</font> <font color="#000000">Release Date : 20{'.'.join(release_date[i:i+2] for i in range(0, len(release_date), 2))}</font><br>
+    <font color="#0000ff">■</font> <font color="#000000">Genre : K-Pop</font><br>
+    <font color="#0000ff">■</font> <font color="#000000">Disc Format(s) : CD</font><br>
+    <font color="#0000ff">■</font> <font color="#000000">KJCstar Product ID : {sku.upper()}</font>
+    </font>
     </p>
 
     <p>
@@ -175,16 +184,17 @@ def walmart(sku, artist, album, name, release_date, versionHTML, package):
     <font color="#0000ff" size="3" face="Arial"><b>■ Contents</b></font></p>
 
     <p dir="ltr" style="line-height: 150%">
-    <font size="3"  face="Arial">This album has {len(versionHTML.split()[::3])} versions : <br>{versionHTML}  </font></p>
+    <font size="3" face="Arial" color="#000000">This album has {len(versionHTML.split()[::3])} versions : <br>{versionHTML}  </font></p>
 
-    <p dir="ltr" style="line-height: 150%"><font face="Arial" size="3">
-    On Package : <br>
+    <p dir="ltr" style="line-height: 150%"><font face="Arial" size="3" color="#000000">
+    On Package : <br><br>
     {package}
     </font>
     </p>
 
     """
-    f.write(description)
+    cd_walmart.write("==============================WALMART==============================\n\n\n")
+    cd_walmart.write(description)
     return(description)
 
 
@@ -193,5 +203,7 @@ bigCommerce(artist, album, name, release_date, track, version, package)
 walmart(sku, artist, album, name, release_date, versionHTML, package)
 
 
-f.close()
-webbrowser.open('cd.html')
+cd_bigcommerce.close()
+cd_walmart.close()
+webbrowser.open('cd_bigcommerce.txt')
+webbrowser.open('cd_walmart.txt')
