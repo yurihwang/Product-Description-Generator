@@ -1,4 +1,8 @@
+import webbrowser
+f = open('cd.html','w')
+
 ## BASIC INPUT
+sku = input("SKU: ")
 artist = input("Artist: ")
 album = input("Nth (Album, Mini Album, EP, Single): ").title()
 if "Ep" in album:
@@ -9,7 +13,6 @@ release_date = input("Release Date (YYMMDD):")
 
 
 ## TRACKLIST - tracklist
-"""
 print("\nTracklist **ENTER to end**")
 tracklist =[]
 song = "song"
@@ -18,7 +21,7 @@ while song != "":
     if song == "":
         break
     tracklist.append(song)
-"""
+
 
 trackHTML = ""
 track = ""
@@ -31,7 +34,6 @@ for x in range(len(tracklist)):
 
 
 ## VERSIONS - versions
-"""
 print("\nVersions **ENTER to end**")
 versions =[]
 version = "version"
@@ -40,8 +42,8 @@ while version != "":
     if version == "":
         break
     versions.append(version)
-"""
-    
+
+
 versionHTML = ""
 for x in range(len(versions)):
     versionHTML += versions[x].strip().upper() + " ver."
@@ -133,7 +135,7 @@ def bigCommerce(artist, album, name, release_date, track, version, package):
     <h3 dir="ltr" style="line-height: 1.8; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 12pt; font-family: Arial,sans-serif; color: #0000ff; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">■ Contents</span></h3>
     {version}
     <p>&nbsp;</p>
-    <h3 dir="ltr" style="line-height: 1.8; margin-top: 0pt; margin-bottom: 10pt;"><span style="font-size: 12pt; font-family: Arial,sans-serif; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: underline; vertical-align: baseline; white-space: pre-wrap;">On Package :</span></h3>
+    <h3 dir="ltr" style="line-height: 1.8; margin-top: 0pt; margin-bottom: 10pt;"><span style="font-size: 12pt; font-family: Arial,sans-serif; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">On Package :</span></h3>
 
     <h3 dir="ltr" style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt;">
     {package}</h3>
@@ -142,5 +144,54 @@ def bigCommerce(artist, album, name, release_date, track, version, package):
     """
     ## for image
     # <p><span style="font-size: 12pt; font-family: Arial,sans-serif; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"><img src="http://image.kyobobook.co.kr/newimages/apps/b2c/prom/2023/09/26/2564238-2.jpg" alt="" /></span></p>
-
+    f.write(description)
     return(description)
+
+
+
+def walmart(sku, artist, album, name, release_date, versionHTML, package):
+    description = f"""
+    <h3 style="line-height: 150%">
+    <font face="Arial" color="#ff0000"><b><font >K-Pop</font><font face="Arial">{artist.strip().upper()} {album.title()} [ {name} ]</b></font></h3>
+    <br>
+    <p style="line-height: 150%">
+    <font face="Arial" size="3">
+    <font color="#0000ff">■</font> Release Date : 20{'.'.join(release_date[i:i+2] for i in range(0, len(release_date), 2))}<br>
+    <font color="#0000ff">■</font> Genre : K-Pop<br>
+    <font color="#0000ff">■</font> Disc Format(s) : CD<br>
+    <font color="#0000ff">■</font> KJCstar Product ID : {sku.upper()}</font>
+    </p>
+
+    <p>
+    <font face="Arial" size="3" color="#008080"><b>
+    💽 Safely packed with Tracking Number<br>
+    ✔ 100% Original Brand New Product<br> 
+    🎯 Your order will be reflected and counted towards CIRCLE and HANTEO chart!<br></b></font>
+    </p>
+
+    <br>
+
+    <p dir="ltr" style="line-height: 150%">
+    <font color="#0000ff" size="3" face="Arial"><b>■ Contents</b></font></p>
+
+    <p dir="ltr" style="line-height: 150%">
+    <font size="3"  face="Arial">This album has {len(versionHTML.split()[::3])} versions : <br>{versionHTML}  </font></p>
+
+    <p dir="ltr" style="line-height: 150%"><font face="Arial" size="3">
+    On Package : <br>
+    {package}
+    </font>
+    </p>
+
+    """
+    f.write(description)
+    return(description)
+
+
+bigCommerce(artist, album, name, release_date, track, version, package)
+
+walmart(sku, artist, album, name, release_date, versionHTML, package)
+
+
+f.close()
+webbrowser.open('cd.html')
