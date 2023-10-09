@@ -2,6 +2,7 @@ import webbrowser
 cd_bigcommerce = open('cd_bigcommerce.txt','w')
 cd_ebay = open('cd_ebay.txt','w')
 cd_walmart = open('cd_walmart.txt','w')
+cd_amazon = open('cd_amazon.txt','w')
 
 ## BASIC INPUT
 sku = input("SKU: ").strip().upper()
@@ -142,10 +143,10 @@ for x in range(len(package_list)):
 
 
 
-def bigCommerce(sku, upc, artist, album, name, release_date, track, version, package):
+def bigCommerce(sku, upc, artist, album, name, release_date, track, versionHTML, version, package):
 
     listing_title = f"{artist.upper()} {album.title()} [{name}])"
-    cd_bigcommerce.write("Product Name: ", listing_title, "\nSKU: ", sku, "\n\nProduct UPC: ", upc)
+    cd_bigcommerce.write("Product Name: ", listing_title, "\nSKU: ", sku, "\n\nProduct UPC: ", upc, "\n\nVersions: ", versionHTML)
     cd_bigcommerce.write("\n\nAvailability: Approximately 7 ~ 9 business days")
 
     description = f"""
@@ -170,7 +171,7 @@ def bigCommerce(sku, upc, artist, album, name, release_date, track, version, pac
     ## for image
     # <p><span style="font-size: 12pt; font-family: Arial,sans-serif; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"><img src="http://image.kyobobook.co.kr/newimages/apps/b2c/prom/2023/09/26/2564238-2.jpg" alt="" /></span></p>
     
-    cd_bigcommerce.write("=====BIG COMMERCE=====\n\n\n")
+    cd_bigcommerce.write("\n=====BIG COMMERCE=====\n\n\n")
     cd_bigcommerce.write(description)
     return(description)
 
@@ -197,17 +198,17 @@ def ebay(sku, upc, artist, album, name, release_date, record_label, track, versi
     🎯 Your order will be reflected and counted towards CIRCLE and HANTEO chart!<br></b></font>
     </p>
 
-    <span style="font-size: 12pt; font-family: Arial, sans-serif; color: rgb(0, 0, 255); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">
-    <span style="color: rgb(0, 0, 255);>■</span> Artist : {artist.strip().capitalize()}<br>
-    <span style="color: rgb(0, 0, 255);>■</span> Release Date : 20{'.'.join(release_date[i:i+2] for i in range(0, len(release_date), 2))}<br>
-    <span style="color: rgb(0, 0, 255);>■</span> Genre : K-Pop<br>
-    <span style="color: rgb(0, 0, 255);>■</span> Disc Format(s) : CD<br>
+    <span style="font-size: 12pt; font-family: Arial, sans-serif; background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">
+    <span style="color: rgb(0, 0, 255)">■</span> Artist : {artist.strip().capitalize()}<br>
+    <span style="color: rgb(0, 0, 255)">■</span> Release Date : 20{'.'.join(release_date[i:i+2] for i in range(0, len(release_date), 2))}<br>
+    <span style="color: rgb(0, 0, 255)">■</span> Genre : K-Pop<br>
+    <span style="color: rgb(0, 0, 255)">■</span> Disc Format(s) : CD<br>
     <br>
-    <span style="color: rgb(0, 0, 255);>■</span> Language : Korean<br>
-    <span style="color: rgb(0, 0, 255);>■</span> Country of origin : Korea<br>
-    <span style="color: rgb(0, 0, 255);>■</span> Label : {record_label}<br>
+    <span style="color: rgb(0, 0, 255)">■</span> Language : Korean<br>
+    <span style="color: rgb(0, 0, 255)">■</span> Country of origin : Korea<br>
+    <span style="color: rgb(0, 0, 255)">■</span> Label : {record_label}<br>
     <br>
-    <span style="color: rgb(0, 0, 255);>■</span> KJCstar Product ID : {sku.upper()}
+    <span style="color: rgb(0, 0, 255)">■</span> KJCstar Product ID : {sku.upper()}
     </span>
     </p>
 
@@ -236,7 +237,7 @@ def ebay(sku, upc, artist, album, name, release_date, record_label, track, versi
 
     """
 
-    cd_ebay.write("=====EBAY=====\n\n\n")
+    cd_ebay.write("\n=====EBAY=====\n\n\n")
     cd_ebay.write(description)
     return(description)
 
@@ -290,19 +291,66 @@ def walmart(sku, upc, artist, album, name, release_date, record_label, versionHT
     
 
     """
-    cd_walmart.write("=====WALMART=====\n\n\n")
+    cd_walmart.write("\n=====WALMART=====\n\n\n")
     cd_walmart.write(description)
     return(description)
 
 
-bigCommerce(sku, upc, artist, album, name, release_date, track, version, package)
+def amazon(artist, album, name, sku, upc, versionHTML, site_description, record_label, release_date, trackHTML):
+    listing_title = f"{artist.upper()} {album.title()} [{name}]"
+    if len((versionHTML).split()) >= 5:
+        for x in versionHTML.split()[::3]:
+            listing_title += f" {x} ver. - Incl. {site_description}"
+            cd_amazon.write(listing_title)
+        
+    else:
+        listing_title += f" - Incl. {site_description}"
+        cd_amazon.write(listing_title)
+
+    track = trackHTML.replace("""<span style="font-size: 12pt; font-family: Arial,sans-serif; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">""", "")
+    track = track.replace("</span>","")
+
+    description =f"""
+    K-Pop {listing_title}<br>
+    <br>
+    ■ Genre : K-Pop<br>
+    ■ Disc Format(s) : CD <br>
+    ■ Record Label : {record_label} <br>
+    ■ KJCstar ID : {sku}<br>
+    <br>
+    📆 Release Date : {release_date}<br>
+    💽 Safely packed with Tracking Number<br>
+    ✔ 100% Original Brand New Product<br>
+    🎯 Your order will be reflected and counted towards CIRCLE and HANTEO chart!<br>
+    <br>
+    ■ Track List <br>
+    {track}<br>
+    <br><br>
+
+    """
+    cd_amazon.write("Listing Title: ",listing_title, "\nUPC: ", upc, "" )
+    cd_amazon.write("Langauage: Korean\nMaufacturer: ", record_label, "\nPublication Date: ", release_date.replace(".","-"), "\nGenre: K-Pop\nCountry of Origin: South Korea\nDesigner Name: ", artist)
+    cd_amazon.write("\n\nSKU: ", sku)
+    cd_amazon.write(description)
+
+
+
+
+
+bigCommerce(sku, upc, artist, album, name, release_date, track, versionHTML, version, package)
 ebay(sku, upc, artist, album, name, release_date, record_label, track, version, package)
 walmart(sku, upc, artist, album, name, release_date, record_label, versionHTML, version, package, site_description)
+amazon(artist, album, name, sku, upc, versionHTML, site_description, record_label, release_date, trackHTML)
+
+
+
 
 
 cd_bigcommerce.close()
 cd_ebay.close()
 cd_walmart.close()
+cd_amazon.close()
 webbrowser.open('cd_bigcommerce.txt')
 webbrowser.open('cd_ebay.txt')
 webbrowser.open('cd_walmart.txt')
+webbrowser.open('cd_amazon.txt')
