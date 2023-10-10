@@ -422,17 +422,16 @@ def ebay(packageHTML, title, kor_title, sku, vol_detail, vol, size, author, arti
 
 def amazon(title, kor_title, size, sku, plot, edition, vol_detail, vol, package_amazon):
 
-    def regular_HTML(v, p):
+    def regular_HTML(v, p, c):
         description = f"""
         Korean Webtoon [{title}] Vol. {v}<br>
         <br>
         ■ Korean Title : {kor_title}<br>
         """
-        isCompleted = input("Completed Series? (Total # of volumes for yes, ENTER for no) ")
-        if isCompleted.isdigit() == True:
+        if c.isdigit() == True:
             select = ""
-            for x in range(isCompleted):
-                select += "x / "
+            for x in range(c):
+                select += f"{x} / "
             description += f"■ Select : {select}Set <br>"
         
         description += f"""
@@ -488,10 +487,11 @@ def amazon(title, kor_title, size, sku, plot, edition, vol_detail, vol, package_
 
 
     if edition == "":
+        isCompleted = input("\nCompleted Series? (Total # of volumes for yes, ENTER for no) ")
         for detail in vol_detail:
             v = int(vol_detail.index(detail)) + 1
             release_date, p, isbn = detail
-            wt_amazon.write(regular_HTML(v, p))
+            wt_amazon.write(regular_HTML(v, p, c))
 
     else:
         tot_page = 0
