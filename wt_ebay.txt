@@ -1,8 +1,8 @@
 
-        <p style="box-sizing: border-box; color: #ffffff; font-family: Karla, Arial, Helvetica, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; line-height: 200%; margin: 0in; padding: 0px; background: white;"><strong><span style="font-family: Arial; font-weight: bold; font-size: 14pt; background-color: #000000; background-position: 0 0;">&nbsp;On Package </span></strong> <strong style="box-sizing: border-box; font-weight: bold; line-height: inherit;"> <span style="box-sizing: border-box; font-size: 14pt; line-height: 28px; font-family: Arial; background-color: #000000;"> :&nbsp;</span></strong></p><p style="box-sizing: border-box; font-family: Arial; font-size: 14pt; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; text-indent: -0.25in; line-height: 150%; padding: 0px; background-image: white; background-repeat: repeat; background-attachment: scroll; margin: 0in 0in 0in 0.5in;">✔ Line Drawing<p style="box-sizing: border-box; font-family: Arial; font-size: 14pt; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; text-indent: -0.25in; line-height: 150%; padding: 0px; background-image: white; background-repeat: repeat; background-attachment: scroll; margin: 0in 0in 0in 0.5in;">✔ Volume 2<p style="box-sizing: border-box; font-family: Arial; font-size: 14pt; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; text-indent: -0.25in; line-height: 150%; padding: 0px; background-image: white; background-repeat: repeat; background-attachment: scroll; margin: 0in 0in 0in 0.5in;">✔ Book Case  (3)</p><p style="box-sizing: border-box; font-family: Arial; font-size: 14pt; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; text-indent: -0.25in; line-height: 150%; padding: 0px; background-image: white; background-repeat: repeat; background-attachment: scroll; margin: 0in 0in 0in 0.5in;">✔ Illustration Board (2)</p>
+        <p style="box-sizing: border-box; color: #ffffff; font-family: Karla, Arial, Helvetica, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; line-height: 200%; margin: 0in; padding: 0px; background: white;"><strong><span style="font-family: Arial; font-weight: bold; font-size: 14pt; background-color: #000000; background-position: 0 0;">&nbsp;On Package </span></strong> <strong style="box-sizing: border-box; font-weight: bold; line-height: inherit;"> <span style="box-sizing: border-box; font-size: 14pt; line-height: 28px; font-family: Arial; background-color: #000000;"> :&nbsp;</span></strong></p><p style="box-sizing: border-box; font-family: Arial; font-size: 14pt; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; text-indent: -0.25in; line-height: 150%; padding: 0px; background-image: white; background-repeat: repeat; background-attachment: scroll; margin: 0in 0in 0in 0.5in;">✔ Box<p style="box-sizing: border-box; font-family: Arial; font-size: 14pt; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; text-indent: -0.25in; line-height: 150%; padding: 0px; background-image: white; background-repeat: repeat; background-attachment: scroll; margin: 0in 0in 0in 0.5in;">✔ Vol. 2 & Vol. 3<p style="box-sizing: border-box; font-family: Arial; font-size: 14pt; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; text-indent: -0.25in; line-height: 150%; padding: 0px; background-image: white; background-repeat: repeat; background-attachment: scroll; margin: 0in 0in 0in 0.5in;">✔ Profile Card (2)</p><p style="box-sizing: border-box; font-family: Arial; font-size: 14pt; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; text-indent: -0.25in; line-height: 150%; padding: 0px; background-image: white; background-repeat: repeat; background-attachment: scroll; margin: 0in 0in 0in 0.5in;">✔ Illustration Card (2)</p>
         <h3 dir="ltr" style="line-height: 150%">
         <br>
-        <b><font size="4" color="#ff0000">Korean Webtoon</font><font size="4"> [ The Broken Ring : This Marriage Will Fail Anyway ] Vol. 2 Special Edition (MANGA1015H)</font>
+        <b><font size="4" color="#ff0000">Korean Webtoon</font><font size="4"> [ What It Means To Be You ] Vol. 2 - 3 Box Set (MANGA1013H)</font>
         </b></h3>
 
         <p align="justify" style="line-height: 150%">
@@ -23,16 +23,16 @@
         <br>
 
         
-        <font color="#0000FF">■</font> Release Date : 2023.10.04<br>
-        <font color="#0000FF">■</font> Page &amp; Size : 288p | 5.7 * 7.9 in<br>
+        <font color="#0000FF">■</font> Release Date : 2023.09.20<br>
+        <font color="#0000FF">■</font> Page &amp; Size : 608p | 5.8 * 8.3 in<br>
         <br>
         
-        <font color="#0000FF">■</font> Author : Chacha Kim<br>
-        <font color="#0000FF">■</font> Artist : Chokam, Cheong-Gwa<br>
-        <font color="#0000FF">■</font> Publisher : young com<br>
+        <font color="#0000FF">■</font> Author : Leebora<br>
+        <font color="#0000FF">■</font> Artist : Ocean, Lanyong<br>
+        <font color="#0000FF">■</font> Publisher : Seoul Media Comics<br>
         <font color="#0000FF">■</font> Country of Origin : South Korea <br>
         <br>
-        <font color="#0000FF">■</font> KJCstar ID : MANGA1015H 
+        <font color="#0000FF">■</font> KJCstar ID : MANGA1013H 
         </font></p>
 
         <br><br>
@@ -41,8 +41,8 @@
         <font face="Arial">
         <font color="#0000FF"><b>■ Details</b></font><br>
         <br>
-        Korean Title : 이 결혼은 어차피 망하게 되어 있다<br>
-        English Title : The Broken Ring : This Marriage Will Fail Anyway
+        Korean Title : 당신의 이해를 돕기 위하여<br>
+        English Title : What It Means To Be You
         </font></p>
 
         <p align="justify" style="line-height: 150%">
@@ -56,7 +56,7 @@
 
         <p style="background-repeat:repeat; background-attachment:scroll; line-height:150%">
         <font face="Arial">
-        When six-year-old Inés laid eyes on the handsome heir to House Escalante, she promptly made the boy her fiancé. Since noble men are all the same, she figured she might as well choose a pretty one. But Lord Cárcel isn't ready for this sort of commitment just yet, and he spends the next decade and a half avoiding the marriage at all costs! Luckily, that's no trouble for Inés, as this marriage failing is exactly what she wants. In fact, he has her blessing to sow his wild oats as long as he stays out of her business. Unfortunately, being a playboy isn't as fun when your fiancée gives you permission. And doesn't this mean she's cheating on him too? Now, Cárcel is determined to change Inés' mind about him and prove he can be the husband she's always wanted.
+        The refined Princess Violet is set to marry Winter, a nobleman's illegitimate (and hot-tempered) son, to clear her family's debt. For her, it's love at first sight, but the marriage plunges into disaster as her family's royal status becomes null and void and she's branded a swindler. Three years into this nightmare, the ex-princess decides to end it all… only to wake up in Winter's body instead! Puzzled by the sudden body swap and unable to rely on others, will the two finally see eye-to-eye?
         </font></p>
         <br><br><br>
 
@@ -68,7 +68,13 @@
                 <p style="line-height: 150%;" align="justify">
                 <span style="font-family: Arial; font-size: 12pt;">
                 <strong> Vol. 2 </strong><br>
-                ISBN: 56126525621651 | 288p
+                ISBN: 9791136771650 | 304p
+                </span></p>
+            
+                <p style="line-height: 150%;" align="justify">
+                <span style="font-family: Arial; font-size: 12pt;">
+                <strong> Vol. 3 </strong><br>
+                ISBN: 9791136773555 | 304p
                 </span></p>
             
         <br><br><br><br><br><br>

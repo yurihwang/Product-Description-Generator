@@ -27,9 +27,9 @@ vol_detail = []
 
 
 packageHTML = ""
-package_bigcommerce_and_walmart = ""
-package_ebay = ""
-package_walmart = ""
+package_bigcommerce_ebay_walmart = ""
+package_amazon = ""
+
 
 
 
@@ -45,7 +45,7 @@ if edition == "":
         isbn = input("ISBN: ")
         vol_detail.append([release_date, page, isbn])
 
-        package_bigcommerce_and_walmart ="""<p><span style="color: #ff0000; background-color: #ffff00; font-family: arial, helvetica, sans-serif; font-size: 14pt;"><strong>"""
+        package_bigcommerce_ebay_walmart ="""<p><span style="color: #ff0000; background-color: #ffff00; font-family: arial, helvetica, sans-serif; font-size: 14pt;"><strong>"""
         while package != "":
             package = input("\n**ENTER to end**\nAnything Included? ('fpl' for First Press Limited) ")
             if "fpl" in package: 
@@ -53,22 +53,26 @@ if edition == "":
             num = input("**ENTER if 1** How many? ")
 
             package_list.append([package, num])
+        
 
 
         for i, [package,num] in enumerate(package_list):
             if len(package) != 0:
                 if i == 0:
-                    package_bigcommerce_and_walmart += f"&nbsp;Vol. {x+1} : "
+                    package_bigcommerce_ebay_walmart += f"&nbsp;Vol. {x+1} : "
                 if num != "":
-                    package_bigcommerce_and_walmart += f"{package.title()} ({num})"
+                    package_bigcommerce_ebay_walmart += f"{package.title()} ({num})"
+                    package_amazon += f"{package.title()} ({num})"
                 else: 
-                    package_bigcommerce_and_walmart += f"{package.title()} (1)"
+                    package_bigcommerce_ebay_walmart += f"{package.title()} (1)"
+                    package_amazon += f"{package.title()} (1)"
+
                 if i < len(package_list)-2: 
-                    package_bigcommerce_and_walmart += " + "
-        package_bigcommerce_and_walmart += "</strong></span></p>"
+                    package_bigcommerce_ebay_walmart += " + "
+        package_bigcommerce_ebay_walmart += "</strong></span></p>"
 
     if package_list != [['','']]:
-        packageHTML += package_bigcommerce_and_walmart
+        packageHTML += package_bigcommerce_ebay_walmart
 
 
 
@@ -97,7 +101,7 @@ if edition != "":
         isbn = input("ISBN: ")
         vol_detail.append([release_date, page, isbn]) 
 
-    package_bigcommerce_and_walmart = """<p style="box-sizing: border-box; color: #ffffff; font-family: Karla, Arial, Helvetica, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; line-height: 200%; margin: 0in; padding: 0px; background: white;"><strong><span style="font-family: Arial; font-weight: bold; font-size: 14pt; background-color: #000000; background-position: 0 0;">&nbsp;On Package </span></strong> <strong style="box-sizing: border-box; font-weight: bold; line-height: inherit;"> <span style="box-sizing: border-box; font-size: 14pt; line-height: 28px; font-family: Arial; background-color: #000000;"> :&nbsp;</span></strong></p>"""
+    package_bigcommerce_ebay_walmart = """<p style="box-sizing: border-box; color: #ffffff; font-family: Karla, Arial, Helvetica, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; line-height: 200%; margin: 0in; padding: 0px; background: white;"><strong><span style="font-family: Arial; font-weight: bold; font-size: 14pt; background-color: #000000; background-position: 0 0;">&nbsp;On Package </span></strong> <strong style="box-sizing: border-box; font-weight: bold; line-height: inherit;"> <span style="box-sizing: border-box; font-size: 14pt; line-height: 28px; font-family: Arial; background-color: #000000;"> :&nbsp;</span></strong></p>"""
     while package != "":
         package = input("\n**ENTER to end**\nOn Package: ('fpl' for First Press Limited) ")
         if "fpl" in package: 
@@ -105,11 +109,13 @@ if edition != "":
         num = input("**ENTER if 1** How many? ")
 
         if package != "":
-            package_bigcommerce_and_walmart += """<p style="box-sizing: border-box; font-family: Arial; font-size: 14pt; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; text-indent: -0.25in; line-height: 150%; padding: 0px; background-image: white; background-repeat: repeat; background-attachment: scroll; margin: 0in 0in 0in 0.5in;">✔ """
-            package_bigcommerce_and_walmart += package.title()
+            package_bigcommerce_ebay_walmart += """<p style="box-sizing: border-box; font-family: Arial; font-size: 14pt; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; text-indent: -0.25in; line-height: 150%; padding: 0px; background-image: white; background-repeat: repeat; background-attachment: scroll; margin: 0in 0in 0in 0.5in;">✔ """
+            package_bigcommerce_ebay_walmart += package.title()
+            package_amazon += f"- {package.title()}"
             if num != "":
-                package_bigcommerce_and_walmart += f" ({num})</p>"
-    packageHTML = package_bigcommerce_and_walmart
+                package_bigcommerce_ebay_walmart += f" ({num})</p>"
+                package_amazon += f" ({num})</br>"
+    packageHTML = package_bigcommerce_ebay_walmart
 
 
 
@@ -123,7 +129,7 @@ def bigcommerce_and_walmart(packageHTML, title, kor_title, edition, vol_detail, 
         <p style="line-height: 150%;" align="justify">
         <span style="font-size: 12pt; font-family: Arial;">
         """
-    if len(vol_detail) > 1: 
+    if len(vol_detail) > 1 and vol_detail[0][0] != vol_detail[1][0]: 
         first_date = vol_detail[0][0]
         first_date = f"20{'.'.join(first_date[i:i+2] for i in range(0, len(first_date), 2))}"
         last_date = vol_detail[-1][0]
@@ -136,9 +142,12 @@ def bigcommerce_and_walmart(packageHTML, title, kor_title, edition, vol_detail, 
         """
     else:
         date = vol_detail[0][0]
+        tot_page = 0
+        for [release_date, page, isbn] in vol_detail:
+            tot_page += int(page)
         description += f"""
         <font color="#0000FF">■</font> Release Date : 20{'.'.join(date[i:i+2] for i in range(0, len(date), 2))}<br>
-        <font color="#0000FF">■</font> Page &amp; Size : {vol_detail[0][1]}p | {size}<br>
+        <font color="#0000FF">■</font> Page &amp; Size : {tot_page}p | {size}<br>
         <br>
         """   
     description += f"""
@@ -181,12 +190,11 @@ def bigcommerce_and_walmart(packageHTML, title, kor_title, edition, vol_detail, 
                 </span></p>
             """
     else:
-        release_date, page, isbn = vol_detail[0]
-        for v in vol:
+        for index, [release_date, page, isbn] in enumerate(vol_detail):
             description += f"""
                 <p style="line-height: 150%;" align="justify">
                 <span style="font-family: Arial; font-size: 12pt;">
-                <strong> Vol. {v} </strong><br>
+                <strong> Vol. {vol[index]} </strong><br>
                 ISBN: {isbn} | {page}p
                 </span></p>
             """
@@ -225,7 +233,7 @@ def ebay(packageHTML, title, kor_title, sku, vol_detail, vol, size, author, arti
         """
     
     
-    if len(vol_detail) > 1: 
+    if len(vol_detail) > 1 and vol_detail[0][0] != vol_detail[1][0]: 
         first_date = vol_detail[0][0]
         first_date = f"20{'.'.join(first_date[i:i+2] for i in range(0, len(first_date), 2))}"
         last_date = vol_detail[-1][0]
@@ -238,9 +246,12 @@ def ebay(packageHTML, title, kor_title, sku, vol_detail, vol, size, author, arti
         """
     else:
         date = vol_detail[0][0]
+        tot_page = 0
+        for [release_date, page, isbn] in vol_detail:
+            tot_page += int(page)
         description += f"""
         <font color="#0000FF">■</font> Release Date : 20{'.'.join(date[i:i+2] for i in range(0, len(date), 2))}<br>
-        <font color="#0000FF">■</font> Page &amp; Size : {vol_detail[0][1]}p | {size}<br>
+        <font color="#0000FF">■</font> Page &amp; Size : {tot_page}p | {size}<br>
         <br>
         """    
 
@@ -298,12 +309,11 @@ def ebay(packageHTML, title, kor_title, sku, vol_detail, vol, size, author, arti
                 </span></p>
             """
     else:
-        release_date, page, isbn = vol_detail[0]
-        for v in vol:
+        for index, [release_date, page, isbn] in enumerate(vol_detail):
             description += f"""
                 <p style="line-height: 150%;" align="justify">
                 <span style="font-family: Arial; font-size: 12pt;">
-                <strong> Vol. {v} </strong><br>
+                <strong> Vol. {vol[index]} </strong><br>
                 ISBN: {isbn} | {page}p
                 </span></p>
             """
@@ -410,10 +420,96 @@ def ebay(packageHTML, title, kor_title, sku, vol_detail, vol, size, author, arti
 
 
 
+def amazon(title, kor_title, size, sku, plot, edition, vol_detail, vol, package_amazon):
 
-bigcommerce_and_walmart(package_bigcommerce_and_walmart, title, kor_title, edition, vol_detail, vol, size, author, artist, publisher, plot)
+    def regular_HTML(v, p):
+        description = f"""
+        Korean Webtoon [{title}] Vol. {v}<br>
+        <br>
+        ■ Korean Title : {kor_title}<br>
+        """
+        isCompleted = input("Completed Series? (Total # of volumes for yes, ENTER for no) ")
+        if isCompleted.isdigit() == True:
+            select = ""
+            for x in range(isCompleted):
+                select += "x / "
+            description += f"■ Select : {select}Set <br>"
+        
+        description += f"""
+            ■ Page & Size : {p}p | {size} <br>
+            ■ KJCstar Product ID : {sku}<br>
+            <br>
+            ★This book is written in Korean<br>
+            ✔ 100% Original Brand New Product<br>
+            📦 Safely packed with Tracking Number<br>
+            <br>
+            <b>Vol. {v}</b> Episode  ~ <br>
+            <br>
+            ■ Synopsis / Plot<br>
+            {plot}
+            <br><br>
+        """
+
+        return(description)
+    
+
+    def special_HTML(vol,tot_page, package_amazon):
+        description = f"""
+            Korean Webtoon [{title}] {edition}<br>
+            <br>
+            ■ Korean Title : {kor_title}<br>
+            ■ Page & Size : {tot_page}p | {size} <br>
+            ■ KJCstar Product ID : {sku}<br>
+            <br>
+            ★This book is written in Korean<br>
+            ✔ 100% Original Brand New Product<br>
+            📦 Safely packed with Tracking Number<br>
+            <br>
+        """
+
+        for v in vol:
+            description += f"""
+            <b>Vol. {v}</b> Episode  ~ <br>
+            """
+
+        description += f"""
+            <br>
+            ■ On Package<br>
+            {package_amazon}
+            <br><br>
+        """
+
+       
+
+
+        return(description)
+
+
+
+
+    if edition == "":
+        for detail in vol_detail:
+            v = int(vol_detail.index(detail)) + 1
+            release_date, p, isbn = detail
+            wt_amazon.write(regular_HTML(v, p))
+
+    else:
+        tot_page = 0
+        for [release_date, page, isbn] in vol_detail:
+            tot_page += int(page)
+        wt_amazon.write(special_HTML(vol, tot_page, package_amazon))
+
+
+
+
+
+    
+  
+
+
+bigcommerce_and_walmart(package_bigcommerce_ebay_walmart, title, kor_title, edition, vol_detail, vol, size, author, artist, publisher, plot)
 ebay(packageHTML, title, kor_title, sku, vol_detail, vol, size, author, artist, publisher, plot)
-
+amazon(title, kor_title, size, sku, plot, edition, vol_detail, vol, package_amazon)
 
 
 wt_bc_walmart.close()
