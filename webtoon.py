@@ -206,28 +206,29 @@ def bigcommerce_and_walmart(packageHTML, title, kor_title, edition, vol_detail, 
 
 
 def ebay(packageHTML, title, kor_title, sku, vol_detail, vol, size, author, artist, publisher, plot):
+    wrap = """<span style="font-size: 12pt; font-family: Arial, sans-serif; background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">"""
     description = f"""
         {packageHTML}
-        <h3 dir="ltr" style="line-height: 150%">
-        <br>
-        <b><font size="4" color="#ff0000">Korean Webtoon</font><font size="4"> [ {title} ] {edition} ({sku})</font>
-        </b></h3>
+        <p dir="ltr" style="line-height:1.8;margin-top:12pt;margin-bottom:12pt;">
+        <span style="font-size: 14pt; font-family: Arial, sans-serif; color: rgb(255, 0, 0); background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">Korean Webtoon</span>
+        <span style="font-size: 14pt; font-family: Arial, sans-serif; background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;"> [{title}] ({sku})</span>
+        </p>
 
-        <p align="justify" style="line-height: 150%">
-        <font color="#008000" size="2" face="Arial">Photographs and actual product colors may vary slightly</font></p>
+        <p dir="ltr" style="line-height:1.9636363636363636;text-align: justify;margin-top:12pt;margin-bottom:12pt;">
+        <span style="font-size: 10pt; font-family: Arial, sans-serif; color: rgb(0, 128, 0); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">Photographs and actual product colors may vary slightly</span>
+        </p>
 
-        <p align="justify" style="line-height: 150%">
-        <font color="#008000" face="Arial">
-        📦 Safely packed with Tracking Number<br>
-        ✔ 100% Original Brand New Product<br>
-        ★This book is written in Korean
-        </font></p>
+        <p dir="ltr" style="line-height:1.9636363636363636;text-align: justify;margin-top:12pt;margin-bottom:12pt;">
+        <span style="font-size: 12pt; font-family: Arial, sans-serif; color: rgb(0, 128, 0); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">📦 Safely packed with Tracking Number</span><br>
+        <span style="font-size: 12pt; font-family: Arial, sans-serif; color: rgb(0, 128, 0); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">✔ 100% Original Brand New Product</span><br>
+        <span style="font-size: 12pt; font-family: Arial, sans-serif; color: rgb(0, 128, 0); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">★This book is written in Korean</span>
+        </p>
         
         <br><br>
 
-        <p align="justify" style="line-height: 150%">
-        <font face="Arial">
-        <font color="#0000FF">■</font> Type : Manhwa / Webtoon<br>
+
+        <p dir="ltr" style="line-height:1.9636363636363636;text-align: justify;margin-top:12pt;margin-bottom:12pt;">
+        {wrap}<span style =”color: rgb(0, 0, 255)”;>■</span> Type : Manhwa / Webtoon
         <br>
 
         """
@@ -263,36 +264,35 @@ def ebay(packageHTML, title, kor_title, sku, vol_detail, vol, size, author, arti
         <font color="#0000FF">■</font> Country of Origin : South Korea <br>
         <br>
         <font color="#0000FF">■</font> KJCstar ID : {sku} 
-        </font></p>
+        </span></p>
 
         <br><br>
 
-        <p align="justify" style="line-height: 150%">
-        <font face="Arial">
-        <font color="#0000FF"><b>■ Details</b></font><br>
+        <p dir="ltr" style="line-height:1.9636363636363636;text-align: justify;margin-top:12pt;margin-bottom:12pt;"> 
+        {wrap}<font color="#0000FF"><b>■ Details</b></font><br>
         <br>
         Korean Title : {kor_title}<br>
         English Title : {title}
-        </font></p>
+        </span></p>
 
-        <p align="justify" style="line-height: 150%">
-        <font color="#FF0000" face="Arial"><b>This book is written in Korean.</b></font></p>
+        <p dir="ltr" style="line-height:1.9636363636363636;text-align: justify;margin-top:12pt;margin-bottom:12pt;">
+        {wrap}<font color="#FF0000"><b>This book is written in Korean.</b></font></span></p>
         <br><br>
 
-        <p align="justify" style="line-height: 150%">
-        <font face="Arial">
+        <p dir="ltr" style="line-height:1.9636363636363636;text-align: justify;margin-top:12pt;margin-bottom:12pt;">
+        {wrap}
         <font color="#0000FF"><b>■ Synopsis / Plot</b></font>
-        </font></p>
+        </span></p>
 
-        <p style="background-repeat:repeat; background-attachment:scroll; line-height:150%">
-        <font face="Arial">
+        <p dir="ltr" style="line-height:1.9636363636363636;text-align: justify;margin-top:12pt;margin-bottom:12pt;">
+        {wrap}
         {plot}
-        </font></p>
+        </span></p>
         <br><br><br>
 
 
-        <p align="justify" style="line-height: 150%">
-        <font color="#0000FF" face="Arial"><b>■ Table of Contents</b></font></p>
+        <p dir="ltr" style="line-height:1.9636363636363636;text-align: justify;margin-top:12pt;margin-bottom:12pt;">
+        {wrap}<b>■ Table of Contents</b></span></p>
 
         """
     
@@ -302,8 +302,8 @@ def ebay(packageHTML, title, kor_title, sku, vol_detail, vol, size, author, arti
             release_date, page, isbn = detail
 
             description += f"""
-                <p style="line-height: 150%;" align="justify">
-                <span style="font-family: Arial; font-size: 12pt;">
+                <p dir="ltr" style="line-height:1.9636363636363636;text-align: justify;margin-top:12pt;margin-bottom:12pt;">
+                {wrap}
                 <strong> Vol. {v} </strong><br>
                 ISBN: {isbn} | {page}p
                 </span></p>
@@ -311,8 +311,8 @@ def ebay(packageHTML, title, kor_title, sku, vol_detail, vol, size, author, arti
     else:
         for index, [release_date, page, isbn] in enumerate(vol_detail):
             description += f"""
-                <p style="line-height: 150%;" align="justify">
-                <span style="font-family: Arial; font-size: 12pt;">
+                <p dir="ltr" style="line-height:1.9636363636363636;text-align: justify;margin-top:12pt;margin-bottom:12pt;">
+                {wrap}
                 <strong> Vol. {vol[index]} </strong><br>
                 ISBN: {isbn} | {page}p
                 </span></p>
@@ -324,95 +324,8 @@ def ebay(packageHTML, title, kor_title, sku, vol_detail, vol, size, author, arti
     description += f"""
         <br><br><br><br><br><br>
 
-        <table border="0" cellpadding="10px" style="border-collapse: collapse" bordercolor="#ffffff" width="800px" height="836">
-        <tbody><tr>
-            <td height="20" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" bgcolor="#6767FF">
-            <p style="line-height: 150%">
-            <b><font face="Arial">
-            <font color="#FFFFFF">PRODUCT GUARANTEE</font></font></b></p></td>
-        </tr>
-        <tr>
-            <td height="19" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF">
-            <p style="line-height: 150%">
-            <font face="Arial"><b>We guarantee all our items are 100% original. If you are not satisfied with our items, Please contact us!
-            </b> </font></p></td>
-        </tr>
-        <tr>
-            <td height="20" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" bgcolor="#6767FF">
-            <p style="line-height: 150%">
-            <b><font face="Arial">
-            <font color="#FFFFFF">SHIPPING</font></font></b></p></td>
-        </tr>
-        <tr>
-            <td height="133" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF">
-            <p style="line-height: 150%">
-            <b><font face="Arial"><font color="#FF0000">All orders from the U.S. will be shipped from our US office via USPS with tracking number (exceptions may occur, we will notify you prior shipping or specify in item description).</font><br>
-            
-            <font color="#0000FF">Sorry, we currently do not offer International Shipping due to increase of shipping cost (except Canada). Buyers who wish to purchase our merchandise outside of the U.S. may choose to use desired shipping forwarder company. If you choose to use a shipping forwarder company, we are not responsible for any damage or loss after the package is safely delivered to the forwarding company. Also, we are not responsible for Buyer's Customs charges.</font><br>
-            
-            <font color="#000000">
-            We ship within 1 to 5 business days  except holiday. Transit times may vary particularly during peak periods.</font></font></b></p></td>
-        </tr>
-        <tr>
-            <td height="20" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" bgcolor="#6767FF">
-            <p style="line-height: 150%">
-            <b><font face="Arial">
-            <font color="#FFFFFF">ESTIMATED DELIVERY TIME</font></font></b></p></td>
-        </tr>
-        <tr>
-            <td height="55" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF">
-            <p style="line-height: 150%">
-            <b><font face="Arial">US Standard : 4 - 14 business days via USPS First Class/Media/Parcel<br>
-            US Expedited : 2 - 4 business days via USPS Priority<br>
-            Canada : 15 - 25 business days</font></b></p></td>
-        </tr>
-        <tr>
-            <td height="20" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" bgcolor="#6767FF">
-            <p style="line-height: 150%">
-            <b><font face="Arial">
-            <font color="#FFFFFF">SHIPPING &amp; HANDLING CHARGE</font></font></b></p></td>
-        </tr>
-        <tr>
-            <td height="19" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF">
-            <p style="line-height: 150%">
-            <b><font face="Arial">No handling charge. <font color="#FF0000">
-            Tracking number will be provided on all orders.</font></font></b></p></td></tr>
-        <tr>
-            <td height="20" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" bgcolor="#6767FF">
-            <p style="line-height: 150%">
-            <b><font face="Arial">
-            <font color="#FFFFFF">COMBINED SHIPPING</font></font></b></p></td>
-        </tr>
-        <tr>
-            <td height="38" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF">
-            <p style="line-height: 150%">
-            <b><font face="Arial">We always do combine shipping.<br>
-            The highest shipping costs and each additional costs will be calculated as a total shipping fee.</font></b></p></td>
-        </tr>
-        <tr>
-            <td height="20" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" bgcolor="#6767FF">
-            <p style="line-height: 150%">
-            <b><font face="Arial">
-            <font color="#FFFFFF">CUSTOMS</font></font></b></p></td>
-        </tr>
-        <tr>
-            <td height="38" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF">
-            <p style="line-height: 150%">
-            <b><font face="Arial">We do not hold any liability on any issues relating to CUSTOMS including but not limited to delays and taxation. Please check with your country's Customs Office to determine the additional cost and policy.</font></b></p></td>
-        </tr>
-        <tr>
-            <td height="20" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" bgcolor="#6767FF">
-            <p style="line-height: 150%">
-            <b><font color="#FFFFFF" face="Arial">RETURN POLICY</font></b></p></td>
-        </tr>  
-        <tr>
-            <td height="114" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF">
-            <p style="line-height: 150%">
-            <b><font face="Arial">We accept return request for buyer's any reason, but the item must be sealed, unused, and in original condition. Return request must be made within 14 days of item delivery. If the returning item has been opened or used, the return request will not be accepted.<br>
-            Refund will be issued after arrival and inspection of the returning item. Shipping is NOT REFUNDABLE.<br>
-            If you received wrong item, please let us know to resolve problem. We will exchange to correct item upon receiving wrong item in unopened, in original condition (We will pay return shipping).</font></b></p></td>
-        </tr>
-        </tbody></table>
+        <div dir="ltr" style="margin-left:0pt;" align="left"><table style="border:none;border-collapse:collapse;"><colgroup><col width="624"></colgroup><tbody><tr style="height:43pt"><td style="vertical-align:top;background-color:#6767ff;padding:5pt 5pt 5pt 5pt;overflow:hidden;overflow-wrap:break-word;"><p dir="ltr" style="line-height:1.9636363636363636;margin-top:12pt;margin-bottom:12pt;"><span style="font-size: 12pt; font-family: Arial, sans-serif; color: rgb(255, 255, 255); background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">PRODUCT GUARANTEE</span></p></td></tr><tr style="height:61pt"><td style="vertical-align:top;padding:5pt 5pt 5pt 5pt;overflow:hidden;overflow-wrap:break-word;"><p dir="ltr" style="line-height:1.9636363636363636;margin-top:12pt;margin-bottom:12pt;"><span style="font-size: 12pt; font-family: Arial, sans-serif; background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">We guarantee all our items are 100% original. If you are not satisfied with our items, Please contact us!</span></p></td></tr><tr style="height:43pt"><td style="vertical-align:top;background-color:#6767ff;padding:5pt 5pt 5pt 5pt;overflow:hidden;overflow-wrap:break-word;"><p dir="ltr" style="line-height:1.9636363636363636;margin-top:12pt;margin-bottom:12pt;"><span style="font-size: 12pt; font-family: Arial, sans-serif; color: rgb(255, 255, 255); background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">SHIPPING</span></p></td></tr><tr style="height:187pt"><td style="vertical-align:top;padding:5pt 5pt 5pt 5pt;overflow:hidden;overflow-wrap:break-word;"><p dir="ltr" style="line-height:1.9636363636363636;margin-top:12pt;margin-bottom:12pt;"><span style="font-size: 12pt; font-family: Arial, sans-serif; color: rgb(255, 0, 0); background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">All orders from the U.S. will be shipped from our US office via USPS with tracking number (exceptions may occur, we will notify you prior shipping or specify in item description).</span><span style="font-size: 12pt; font-family: Arial, sans-serif; color: rgb(255, 0, 0); background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;"><br></span><span style="font-size: 12pt; font-family: Arial, sans-serif; color: rgb(0, 0, 255); background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">Sorry, we currently do not offer International Shipping due to increase of shipping cost (except Canada). Buyers who wish to purchase our merchandise outside of the U.S. may choose to use desired shipping forwarder company. If you choose to use a shipping forwarder company, we are not responsible for any damage or loss after the package is safely delivered to the forwarding company. Also, we are not responsible for Buyer's Customs charges.</span><span style="font-size: 12pt; font-family: Arial, sans-serif; color: rgb(0, 0, 255); background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;"><br></span><span style="font-size: 12pt; font-family: Arial, sans-serif; background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">We ship within 1 to 5 business days except holiday. Transit times may vary particularly during peak periods.</span></p></td></tr><tr style="height:43pt"><td style="vertical-align:top;background-color:#6767ff;padding:5pt 5pt 5pt 5pt;overflow:hidden;overflow-wrap:break-word;"><p dir="ltr" style="line-height:1.9636363636363636;margin-top:12pt;margin-bottom:12pt;"><span style="font-size: 12pt; font-family: Arial, sans-serif; color: rgb(255, 255, 255); background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">ESTIMATED DELIVERY TIME</span></p></td></tr><tr style="height:79pt"><td style="vertical-align:top;padding:5pt 5pt 5pt 5pt;overflow:hidden;overflow-wrap:break-word;"><p dir="ltr" style="line-height:1.9636363636363636;margin-top:12pt;margin-bottom:12pt;"><span style="font-size: 12pt; font-family: Arial, sans-serif; background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">US Standard : 4 - 14 business days via USPS First Class/Media/Parcel</span><span style="font-size: 12pt; font-family: Arial, sans-serif; background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;"><br></span><span style="font-size: 12pt; font-family: Arial, sans-serif; background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">US Expedited : 2 - 4 business days via USPS Priority</span><span style="font-size: 12pt; font-family: Arial, sans-serif; background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;"><br></span><span style="font-size: 12pt; font-family: Arial, sans-serif; background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">Canada : 15 - 25 business days</span></p></td></tr><tr style="height:43pt"><td style="vertical-align:top;background-color:#6767ff;padding:5pt 5pt 5pt 5pt;overflow:hidden;overflow-wrap:break-word;"><p dir="ltr" style="line-height:1.9636363636363636;margin-top:12pt;margin-bottom:12pt;"><span style="font-size: 12pt; font-family: Arial, sans-serif; color: rgb(255, 255, 255); background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">SHIPPING &amp; HANDLING CHARGE</span></p></td></tr><tr style="height:43pt"><td style="vertical-align:top;padding:5pt 5pt 5pt 5pt;overflow:hidden;overflow-wrap:break-word;"><p dir="ltr" style="line-height:1.9636363636363636;margin-top:12pt;margin-bottom:12pt;"><span style="font-size: 12pt; font-family: Arial, sans-serif; background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">No handling charge. </span><span style="font-size: 12pt; font-family: Arial, sans-serif; color: rgb(255, 0, 0); background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">Tracking number will be provided on all orders.</span></p></td></tr><tr style="height:43pt"><td style="vertical-align:top;background-color:#6767ff;padding:5pt 5pt 5pt 5pt;overflow:hidden;overflow-wrap:break-word;"><p dir="ltr" style="line-height:1.9636363636363636;margin-top:12pt;margin-bottom:12pt;"><span style="font-size: 12pt; font-family: Arial, sans-serif; color: rgb(255, 255, 255); background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">COMBINED SHIPPING</span></p></td></tr><tr style="height:61pt"><td style="vertical-align:top;padding:5pt 5pt 5pt 5pt;overflow:hidden;overflow-wrap:break-word;"><p dir="ltr" style="line-height:1.9636363636363636;margin-top:12pt;margin-bottom:12pt;"><span style="font-size: 12pt; font-family: Arial, sans-serif; background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">We always do combine shipping.</span><span style="font-size: 12pt; font-family: Arial, sans-serif; background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;"><br></span><span style="font-size: 12pt; font-family: Arial, sans-serif; background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">The highest shipping costs and each additional costs will be calculated as a total shipping fee.</span></p></td></tr><tr style="height:43pt"><td style="vertical-align:top;background-color:#6767ff;padding:5pt 5pt 5pt 5pt;overflow:hidden;overflow-wrap:break-word;"><p dir="ltr" style="line-height:1.9636363636363636;margin-top:12pt;margin-bottom:12pt;"><span style="font-size: 12pt; font-family: Arial, sans-serif; color: rgb(255, 255, 255); background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">CUSTOMS</span></p></td></tr><tr style="height:61pt"><td style="vertical-align:top;padding:5pt 5pt 5pt 5pt;overflow:hidden;overflow-wrap:break-word;"><p dir="ltr" style="line-height:1.9636363636363636;margin-top:12pt;margin-bottom:12pt;"><span style="font-size: 12pt; font-family: Arial, sans-serif; background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">We do not hold any liability on any issues relating to CUSTOMS including but not limited to delays and taxation. Please check with your country's Customs Office to determine the additional cost and policy.</span></p></td></tr><tr style="height:43pt"><td style="vertical-align:top;background-color:#6767ff;padding:5pt 5pt 5pt 5pt;overflow:hidden;overflow-wrap:break-word;"><p dir="ltr" style="line-height:1.9636363636363636;margin-top:12pt;margin-bottom:12pt;"><span style="font-size: 12pt; font-family: Arial, sans-serif; color: rgb(255, 255, 255); background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">RETURN POLICY</span></p></td></tr><tr style="height:151pt"><td style="vertical-align:top;padding:5pt 5pt 5pt 5pt;overflow:hidden;overflow-wrap:break-word;"><p dir="ltr" style="line-height:1.9636363636363636;margin-top:12pt;margin-bottom:12pt;"><span style="font-size: 12pt; font-family: Arial, sans-serif; background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">We accept return request for buyer's any reason, but the item must be sealed, unused, and in original condition. Return request must be made within 14 days of item delivery. If the returning item has been opened or used, the return request will not be accepted.</span><span style="font-size: 12pt; font-family: Arial, sans-serif; background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;"><br></span><span style="font-size: 12pt; font-family: Arial, sans-serif; background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">Refund will be issued after arrival and inspection of the returning item. Shipping is NOT REFUNDABLE.</span><span style="font-size: 12pt; font-family: Arial, sans-serif; background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;"><br></span><span style="font-size: 12pt; font-family: Arial, sans-serif; background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">If you received wrong item, please let us know to resolve problem. We will exchange to correct item upon receiving wrong item in unopened, in original condition (We will pay return shipping).</span></p></td></tr></tbody></table></div></span>
+
 
     """
 
